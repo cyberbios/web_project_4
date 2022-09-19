@@ -1,0 +1,56 @@
+.cards {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  column-gap: 17px;
+  row-gap: 20px;
+  justify-items: center;
+}
+
+.cards__card {
+  height: 282px;
+}
+
+.cards__content {
+  width: 282px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cards__footer {
+  color: #000000;
+  display: flex;
+}
+
+.cards__name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  margin: 25px 0 25px 20px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.cards__heart {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.cards__heart:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6;
+    max-width: calc(100% - 38px);
+    margin: auto;
+  }
+}
