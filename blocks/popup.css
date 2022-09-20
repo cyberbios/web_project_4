@@ -1,0 +1,49 @@
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup__content {
+  padding: 20px;
+  width: 100%;
+  max-width: 430px;
+  height: 330px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  color: black;
+}
+
+.popup__close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+
+.popup__input {
+  width: 100%;
+}
+
+.popup__label {
+  display: block;
+  margin-top: 15px;
+}
+
+.popup__submit-btn {
+  margin-top: 30px;
+  width: 100%;
+}
