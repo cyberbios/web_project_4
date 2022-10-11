@@ -30,7 +30,7 @@
   max-width: 219px;
 }
 .card__button-trash {
-  background: url(../images/Trash.svg);
+  background: url("../images/trash.svg");
   position: absolute;
   right: 15px;
   top: 18px;
@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 .card__button-like_liked {
-  background: url("../images/heart_active.svg") no-repeat center;
+  background: url("../images/like-active.svg") no-repeat center;
 }
 
 .card__button-like:hover {
