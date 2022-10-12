@@ -35,28 +35,28 @@ const cardTemplate = document.querySelector("#card").content;
 
 const initialCards = [
   {
-    name: "Government office in Putrajaya, Malaysia.",
-    link: "https://images.unsplash.com/photo-1648291881755-f984c18e16cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80",
+    name: "Cousteau’s underwater classroom: Imparting lessons from under the sea.",
+    link: "../images/cousteau_underwater.png",
   },
   {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    name: "Jacques Cousteau Wearing Diving Gear by Bettmann",
+    link: "../images/jacques-cousteau-wearing-diving-gear-bettmann.png",
   },
   {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+    name: "Watercraft of Explorer, Invented by Jacques Cousteau",
+    link: "../images/watercraft.png",
   },
   {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+    name: "Jacques Cousteau, Calypso boat and the Watercrafts, Diving around the World",
+    link: "../images/calypso.png",
   },
   {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+    name: "Jacques Cousteau, underwater man",
+    link: "https://plus.unsplash.com/premium_photo-1661265851801-e523847e3932?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
   },
   {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+    name: "Calypso Vessel - in Montreal - Canada. Jacques Cousteau around the world",
+    link: "https://upload.wikimedia.org/wikipedia/commons/6/6a/%22Calypso%22_-_Montreal%2C_1980.jpg",
   },
 ];
 

@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Beautiful cards around the USA" />
+    <meta name="keywords" content="Around The U.S." />
     <meta name="author" content="Lev Meir" />
-    <title>Around The U.S.</title>
-    <link rel="icon" href="./favicon.svg" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="./favicon.svg" />
+    <title>Around The U.S.</title>
   </head>
   <body class="page">
     <header class="header">
@@ -35,7 +36,7 @@
       <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
     </footer>
 
-    <!-- Edit Modal Window -->
+    <!-- Edit Modal Profile -->
     <div class="popup popup_type_edit-profile">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
@@ -62,7 +63,7 @@
       </div>
     </div>
 
-    <!-- Add New Card Modal Window -->
+    <!-- Add New Card-->
     <div class="popup popup_type_add-card">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
@@ -84,12 +85,12 @@
               required
             />
           </fieldset>
-          <button type="submit" class="form__button">Save</button>
+          <button type="submit" class="form__button">Create</button>
         </form>
       </div>
     </div>
 
-    <!-- View Card by Popup -->
+    <!-- View Card Popup -->
     <div class="popup popup_type_card">
       <div class="popup__card">
         <button type="button" class="popup__close"></button>
@@ -118,6 +119,6 @@
       </div>
     </template>
 
-    <script src="./script/script.js"></script>
+    <script src="./pages/index.js"></script>
   </body>
 </html>
