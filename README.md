@@ -17,7 +17,7 @@ Add new images and delete that you don't want. Change the names of images and li
 ![EDIT_FORM](https://user-images.githubusercontent.com/15382289/192146691-0632bb96-6f71-41eb-b858-3e7cec05756d.png)
 
 ### This is the image after finish the page, with the trash button, like button and form!
-![FINAL_PAGE(![Proj5_PAGE](https://user-images.githubusercontent.com/15382289/195344975-c0f965aa-2cbe-42e8-966f-f23acc48c13f.png)
+![FINAL_PAGE](![Proj5_PAGE](https://user-images.githubusercontent.com/15382289/195344975-c0f965aa-2cbe-42e8-966f-f23acc48c13f.png)
 
 
 
