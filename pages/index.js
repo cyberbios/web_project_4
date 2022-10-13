@@ -6,6 +6,9 @@ const addCardFormElement = addCardModal.querySelector(".form");
 
 const cardViewModal = document.querySelector(".popup_type_card");
 
+const cardViewImgage = cardViewModal.querySelector(".popup__image");
+const cardViewDescription = cardViewModal.querySelector(".popup__description");
+
 const gallery = document.querySelector(".gallery");
 
 //Buttons
@@ -64,18 +67,14 @@ const initialCards = [
 function openPopup(modal) {
   modal.classList.add("popup_opened");
 }
-//Hidden popup
-function hiddenPopup(modal) {
+//Close popup
+function closePopup(modal) {
   modal.classList.remove("popup_opened");
 }
 
 //Fill data in CardViewPopup
 function fillCardViewPopup(card) {
   const image = card.querySelector(".card__image");
-  const cardViewImgage = cardViewModal.querySelector(".popup__image");
-  const cardViewDescription = cardViewModal.querySelector(
-    ".popup__description"
-  );
 
   cardViewImgage.src = image.src;
   cardViewImgage.alt = image.alt;
@@ -107,6 +106,8 @@ function initCard(card) {
     listItem.remove();
   });
 
+  //Open popup image in full size when click on it
+  //I tried to improve your sugestion but the popup image stop to work
   cardElement.querySelector(".card__image").addEventListener("click", (e) => {
     fillCardViewPopup(cardElement);
   });
@@ -120,7 +121,7 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameEditProfileInput.value;
   profileJob.textContent = jobEditProfileInput.value;
 
-  hiddenPopup(editProfileModal);
+  closePopup(editProfileModal);
 }
 //Submit information about new card
 function handleAddCardFormSubmit(evt) {
@@ -133,7 +134,7 @@ function handleAddCardFormSubmit(evt) {
 
   gallery.prepend(cardElement);
 
-  hiddenPopup(addCardModal);
+  closePopup(addCardModal);
   addCardFormElement.reset();
 }
 
@@ -142,16 +143,16 @@ editProfileModalButton.addEventListener("click", () => {
   openPopup(editProfileModal);
 });
 editProfileModalCloseButton.addEventListener("click", () => {
-  hiddenPopup(editProfileModal);
+  closePopup(editProfileModal);
 });
 
 addCardModalButton.addEventListener("click", () => openPopup(addCardModal));
 addcardModalCloseButton.addEventListener("click", () => {
-  hiddenPopup(addCardModal);
+  closePopup(addCardModal);
 });
 
 cardViewModalCloseButton.addEventListener("click", () => {
-  hiddenPopup(cardViewModal);
+  closePopup(cardViewModal);
 });
 
 //Add all cards from array by templates
