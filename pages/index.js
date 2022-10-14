@@ -107,13 +107,20 @@ function initCard(card) {
   });
 
   //Open popup image in full size when click on it
-  //I tried to improve your sugestion but the popup image stop to work
-  cardElement.querySelector(".card__image").addEventListener("click", (e) => {
-    fillCardViewPopup(cardElement);
+  imageElement.addEventListener("click", (e) => {
+    fillCardViewPopup(card);
   });
 
   return cardElement;
 }
+
+function fillCardViewPopup(card) {
+  cardViewImgage.src = card.link;
+  cardViewImgage.alt = card.name;
+  cardViewDescription.textContent = card.name;
+  openPopup(cardViewModal);
+}
+
 //Submit information profile title and subtitle
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
