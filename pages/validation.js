@@ -99,6 +99,13 @@ const setEventListeners = (formElement, config) => {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, config);
 
+  formElement.addEventListener("reset", () => {
+    // `setTimeout` is needed to wait till the form is fully reset and then to call `toggleButtonState`
+    setTimeout(() => {
+      toggleButtonState(inputList, buttonElement, config);
+    }, 0); // it’s enough to put 0 ms here
+  });
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, config);
