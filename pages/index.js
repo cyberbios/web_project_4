@@ -1,3 +1,7 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import { openPopup, hidePopup } from "./utils.js";
+
 //Wrappers
 const editProfileModal = document.querySelector(".popup_type_edit-profile");
 const editFormElement = editProfileModal.querySelector(".form");
@@ -6,6 +10,8 @@ const addCardModal = document.querySelector(".popup_type_add-card");
 const addCardFormElement = addCardModal.querySelector(".form");
 
 const cardViewModal = document.querySelector(".popup_type_card");
+const cardViewImgage = cardViewModal.querySelector(".popup__image");
+const cardViewDescription = cardViewModal.querySelector(".popup__description");
 
 const gallery = document.querySelector(".gallery");
 
@@ -35,6 +41,14 @@ const profileJob = document.querySelector(".profile__subtitle");
 
 const cardTemplate = document.querySelector("#card").content;
 
+const configClasses = {
+  inputSelector: ".form__input",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+};
+
 const initialCards = [
   {
     name: "Cousteau’s underwater classroom: Imparting lessons from under the sea.",
@@ -63,24 +77,18 @@ const initialCards = [
 ];
 
 /**
- * Open popup
- * @param {string} modal
+ * Generate new card
+ * @param {Object} cardObject
+ * @returns Object
  */
-const openPopup = (modal) => {
-  modal.classList.add("popup_opened");
-
-  document.addEventListener("keydown", closePopupByEscape);
-  modal.addEventListener("mousedown", closePopupOnRemoteClick);
-};
-
-/**
- * Hide popup
- * @param {string} modal
- */
-const hidePopup = (modal) => {
-  modal.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupByEscape);
-  modal.removeEventListener("mousedown", closePopupOnRemoteClick);
+const createCard = (cardObject) => {
+  const card = new Card(
+    cardObject.name,
+    cardObject.link,
+    cardTemplate,
+    openPreviewPopup
+  );
+  return card.generateCard();
 };
 
 /**
@@ -89,15 +97,11 @@ const hidePopup = (modal) => {
  */
 const openPreviewPopup = (card) => {
   const image = card.querySelector(".card__image");
-  const cardViewImgage = cardViewModal.querySelector(".popup__image");
-  const cardViewDescription = cardViewModal.querySelector(
-    ".popup__description"
-  );
 
   cardViewImgage.src = image.src;
   cardViewImgage.alt = image.alt;
   cardViewDescription.textContent = image.alt;
-  openPopup(cardViewModal);
+  openPopup(document.querySelector(".popup_type_card"));
 };
 
 /**
@@ -111,42 +115,11 @@ const fillEditProfileForm = (name, job) => {
 };
 
 /**
- * Initial card
- * @param {string} card
- * @returns
- */
-const initCard = (card) => {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const imageElement = cardElement.querySelector(".card__image");
-  const titleElement = cardElement.querySelector(".card__title");
-  const trashButton = cardElement.querySelector(".card__button-trash");
-  const likeButton = cardElement.querySelector(".card__button-like");
-  imageElement.src = card.link;
-  imageElement.alt = card.name;
-  titleElement.textContent = card.name;
-
-  likeButton.addEventListener("click", (e) => {
-    e.target.classList.toggle("card__button-like_liked");
-  });
-  trashButton.addEventListener("click", (e) => {
-    const listItem = trashButton.closest(".card");
-    listItem.remove();
-  });
-
-  cardElement.querySelector(".card__image").addEventListener("click", (e) => {
-    openPreviewPopup(cardElement);
-  });
-
-  return cardElement;
-};
-
-/**
  * Submit information profile title and subtitle
  * @param {event} evt
  */
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
-
   profileName.textContent = nameEditProfileInput.value;
   profileJob.textContent = jobEditProfileInput.value;
 
@@ -163,43 +136,16 @@ const handleAddCardFormSubmit = (evt) => {
     name: titleAddCardInput.value,
     link: linkAddCardInput.value,
   };
-  const cardElement = initCard(cardInput);
-
+  const cardElement = createCard(cardInput);
   gallery.prepend(cardElement);
 
   hidePopup(addCardModal);
   addCardFormElement.reset();
-  const sumbitButton = addCardModal.querySelector(".form__button");
-  toggleButtonState(
-    [titleAddCardInput, linkAddCardInput],
-    sumbitButton,
-    configClasses
-  );
-};
-
-/**
- * Close popup by 'esc' key
- * @param {event} evt
- */
-const closePopupByEscape = (evt) => {
-  if (evt.key === "Escape") {
-    hidePopup(document.querySelector(".popup_opened"));
-  }
-};
-
-/**
- * Close popup by click mouse out off popup
- * @param {event} evt
- */
-const closePopupOnRemoteClick = (evt) => {
-  if (evt.target === evt.currentTarget) {
-    hidePopup(evt.target);
-  }
+  addCardFormValidation.toggleButtonState();
 };
 
 editProfileModalButton.addEventListener("click", () => {
   fillEditProfileForm(profileName.textContent, profileJob.textContent);
-  checkAllInputsError(editFormElement);
   openPopup(editProfileModal);
 });
 editProfileModalCloseButton.addEventListener("click", () => {
@@ -213,15 +159,26 @@ addCardModalCloseButton.addEventListener("click", () => {
   hidePopup(addCardModal);
 });
 
-cardViewModalCloseButton.addEventListener("click", () =>
-  hidePopup(cardViewModal)
-);
+cardViewModalCloseButton.addEventListener("click", () => {
+  hidePopup(cardViewModal);
+});
 
 //Add all cards from array by templates
 initialCards.forEach((card) => {
-  const cardElement = initCard(card);
+  const cardElement = createCard(card);
   gallery.append(cardElement);
 });
 
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+
+const editProfileFormValidator = new FormValidator(
+  configClasses,
+  editFormElement
+);
+editProfileFormValidator.enableValidation();
+const addCardFormValidation = new FormValidator(
+  configClasses,
+  addCardFormElement
+);
+addCardFormValidation.enableValidation();
