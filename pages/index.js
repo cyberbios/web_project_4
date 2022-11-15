@@ -101,7 +101,7 @@ const openPreviewPopup = (card) => {
   cardViewImgage.src = image.src;
   cardViewImgage.alt = image.alt;
   cardViewDescription.textContent = image.alt;
-  openPopup(document.querySelector(".popup_type_card"));
+  openPopup(cardViewModal);
 };
 
 /**

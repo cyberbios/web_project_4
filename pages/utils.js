@@ -15,7 +15,7 @@ const openPopup = (modal) => {
  */
 const hidePopup = (modal) => {
   modal.classList.remove("popup_opened");
-  modal.removeEventListener("keydown", closePopupByEscape);
+  document.removeEventListener("keydown", closePopupByEscape);
   modal.removeEventListener("mousedown", closePopupOnRemoteClick);
 };
 
