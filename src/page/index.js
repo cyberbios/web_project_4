@@ -1,12 +1,12 @@
-import "../pages/index.css"; // add import of the main stylesheets file
+import "./index.css"; // add import of the main stylesheets file
 
-import Card from "../scripts/Card.js";
-import FormValidator from "../scripts/FormValidator.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForms.js";
 import UserInfo from "../components/UserInfo.js";
-import { configClasses, initialCards } from "../scripts/constants.js";
+import { configClasses, initialCards } from "../utils/constants.js";
 
 //Wrappers
 const editProfileModal = document.querySelector(".popup_type_edit-profile");
@@ -45,25 +45,14 @@ const createCard = (cardObject) => {
 const cards = new Section(
   {
     items: initialCards,
-    renderer: (data) => {
-      const cardInput = {
-        name: data.name,
-        link: data.link,
-      };
-      const cardElement = createCard(cardInput);
-      return cardElement;
-    },
+    renderer: createCard,
   },
   ".gallery"
 );
 cards.renderItems();
 
 const addNewCardModal = new PopupWithForm("popup_type_add-card", (data) => {
-  const cardInput = {
-    name: data.name,
-    link: data.link,
-  };
-  const cardElement = createCard(cardInput);
+  const cardElement = createCard(data);
   cards.prepenedItem(cardElement);
   addCardFormValidation.toggleButtonState();
 });
