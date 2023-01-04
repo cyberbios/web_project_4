@@ -45,6 +45,13 @@
   opacity: 0.6;
 }
 
+.card__like-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .card__button-like {
   background: url("../images/heart.svg") no-repeat center;
   width: 21px;
