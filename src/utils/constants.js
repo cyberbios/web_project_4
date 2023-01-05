@@ -31,6 +31,7 @@ const jobEditProfileInput = document.querySelector(".form__input_content_job");
 
 const cardTemplate = document.querySelector("#card").content;
 
+/** 
 const initialCards = [
   {
     name: "Cousteau’s underwater classroom: Imparting lessons from under the sea.",
@@ -56,11 +57,11 @@ const initialCards = [
     name: "Calypso Vessel - in Montreal - Canada. Jacques Cousteau around the world",
     link: "https://upload.wikimedia.org/wikipedia/commons/6/6a/%22Calypso%22_-_Montreal%2C_1980.jpg",
   },
-];
+];*/
 
 export {
   configClasses,
-  initialCards,
+  //initialCards,
   editProfileModal,
   editFormElement,
   addCardModal,

@@ -9,7 +9,7 @@ import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import UserInfo from "../components/UserInfo.js";
 import {
   configClasses,
-  initialCards,
+  //initialCards,
   editFormElement,
   addCardFormElement,
   editAvatarElement,
