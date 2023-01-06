@@ -1,5 +1,5 @@
 import "./index.css"; // add import of the main stylesheets file
-import Api from "../utils/Api.js";
+import Api from "../components/Api.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -9,7 +9,7 @@ import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import UserInfo from "../components/UserInfo.js";
 import {
   configClasses,
-  //initialCards,
+  initialCards,
   editFormElement,
   addCardFormElement,
   editAvatarElement,
@@ -22,7 +22,7 @@ import {
 } from "../utils/constants.js";
 
 let cards;
-let UserId;
+let userId;
 
 const fillEditProfileForm = (name, about) => {
   nameEditProfileInput.value = name;
