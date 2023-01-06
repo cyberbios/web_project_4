@@ -6,9 +6,11 @@ class PopupWithSubmit extends Popup {
     this._popupForm = this._popupElement.querySelector(".form");
     this._submitButton = this._popupForm.querySelector(".form__button");
   }
+
   showLoading() {
     this._submitButton.textContent = "Removing...";
   }
+
   hideLoading() {
     this._submitButton.textContent = "Yes";
   }
@@ -24,4 +26,5 @@ class PopupWithSubmit extends Popup {
     super.setEventListeners();
   }
 }
+
 export default PopupWithSubmit;

@@ -1,7 +1,7 @@
 import "./index.css"; // add import of the main stylesheets file
-import Api from "../components/Api.js";
+import Api from "../components/Api";
 import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForms.js";
@@ -9,7 +9,6 @@ import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import UserInfo from "../components/UserInfo.js";
 import {
   configClasses,
-  initialCards,
   editFormElement,
   addCardFormElement,
   editAvatarElement,
@@ -19,7 +18,7 @@ import {
   nameEditProfileInput,
   jobEditProfileInput,
   cardTemplate,
-} from "../utils/constants.js";
+} from "../utils/constants";
 
 let cards;
 let userId;
@@ -29,9 +28,9 @@ const fillEditProfileForm = (name, about) => {
   jobEditProfileInput.value = about;
 };
 
-// API
+//------------------------API----------------------------------
 const api = new Api({
-  baseUrl: "https://aroud.nomoreparties.co/v1/cohort-3-en",
+  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
   headers: {
     authorization: "f3a40ce9-1f69-4ecd-ac6f-bd6bc99d92d1",
     "Content-Type": "application/json",
@@ -40,16 +39,15 @@ const api = new Api({
 
 /**
  * Fill data in editProfileMockup
- *  @param {string} name
- *  @param {string} job
- *  @param {string} avatar
+ * @param {string} name
+ * @param {string} job
+ * @param {string} avatar
  */
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__subtitle",
   avatarSelector: ".profile__avatar-img",
 });
-
 /**
  * Generate new card
  * @param {Object} cardObject
@@ -213,14 +211,13 @@ addCardModalButton.addEventListener("click", () => {
   addCardFormValidation.resetValidation();
   addCardFormValidation.toggleButtonState();
 });
-
 editAvatarButton.addEventListener("click", () => {
   editAvatarModal.open();
   editAvatarCardFormValidation.resetValidation();
   editAvatarCardFormValidation.toggleButtonState();
 });
 
-// Validation
+//--------------------------Validation-------------------------------------
 const editProfileFormValidator = new FormValidator(
   configClasses,
   editFormElement

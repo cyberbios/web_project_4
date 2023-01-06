@@ -34,9 +34,11 @@ class PopupWithForm extends Popup {
     this._popupForm.reset();
     super.close();
   }
+
   showLoading() {
     this._submitButton.textContent = "Saving...";
   }
+
   hideLoading() {
     this._submitButton.textContent = this._submitButtonText;
   }

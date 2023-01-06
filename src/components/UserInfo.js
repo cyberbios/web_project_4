@@ -16,7 +16,6 @@ class UserInfo {
     this._name.textContent = name;
     this._about.textContent = about;
   }
-
   setAvatar(avatarLink) {
     this._avatar.src = avatarLink.avatar;
   }

@@ -24,7 +24,7 @@ export default class Api {
   }
 
   editUserInfo(newUserInfo) {
-    return fetch(`${this._baseUrl}/user/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(newUserInfo),
@@ -38,12 +38,14 @@ export default class Api {
       body: JSON.stringify(newCardInfo),
     }).then(this._checkResponse);
   }
+
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
@@ -56,6 +58,7 @@ export default class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
   editUserAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
