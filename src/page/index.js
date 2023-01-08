@@ -160,7 +160,6 @@ const editAvatarModal = new PopupWithForm(
       .editUserAvatar(data.link)
       .then(() => {
         userInfo.setAvatar({ avatar: data.link });
-        addCardFormValidation.toggleButtonState();
         editAvatarModal.close();
       })
       .catch((err) => {

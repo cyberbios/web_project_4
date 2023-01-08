@@ -25,15 +25,6 @@ class Card {
     this._element = null;
   };
 
-  /**
-   * toggle like button
-   */
-  toggleLike(amountLikes) {
-    this._likeButton.classList.toggle("card__button-like_liked");
-    this._element.querySelector(".card__likes-count").textContent =
-      amountLikes.length;
-  }
-
   // check it's like or not
   isLiked() {
     return this._likes.some((person) => person._id === this._userId);
