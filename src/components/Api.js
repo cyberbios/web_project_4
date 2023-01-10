@@ -22,7 +22,6 @@ export default class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
-
   editUserInfo(newUserInfo) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
